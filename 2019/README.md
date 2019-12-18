@@ -4,8 +4,21 @@ https://adventofcode.com/2019
 
 Languages: Python, Fortran, C++
 
+The novelty this year is to do mixed-language computation. Implementation of
+the logic would be in Fortran / C++. Python would be only used to do I/O: pass
+input and receive output.
+
 ## Workflow
 
+### Using f2py
+
+```sh
+pip install -e .
+cd src && make && cd -
+pytest tests/*
+```
+
+### Using meson (WIP)
 ```sh
 meson build
 cd build/
