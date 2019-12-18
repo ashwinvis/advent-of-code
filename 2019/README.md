@@ -17,3 +17,4 @@ ninja
 * https://www.fortran90.org/src/best-practices.html
 * http://fortranwiki.org/fortran/show/Build+tools
 * https://mesonbuild.com/Quick-guide.html
+* https://docs.scipy.org/doc/numpy/f2py/getting-started.html

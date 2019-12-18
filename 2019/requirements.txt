@@ -6,3 +6,4 @@
 #
 meson==0.52.1
 ninja==1.9.0.post1
+numpy==1.17.4
