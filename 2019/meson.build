@@ -2,7 +2,7 @@ project('advent', 'fortran')
 
 # Compiler flags
 #
-fflags = '-fno-underscoring -fno-second-underscore'
+fflags = ['-fno-underscoring', '-fno-second-underscore']
 
 add_global_arguments(fflags, language : 'fortran')
 
