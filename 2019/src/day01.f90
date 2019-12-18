@@ -9,7 +9,7 @@ contains
     use types, only: dp
     real(dp), intent(in) :: mod_mass
     ! take its mass, divide by three, round down, and subtract 2
-    mod_fuel = nint(mod_mass / 3) - 2
+    mod_fuel = floor(mod_mass / 3) - 2
   end function
 
   integer function total_fuel(masses) result(total)
