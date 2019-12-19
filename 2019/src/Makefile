@@ -8,11 +8,11 @@ all: compile clean
 	gfortran -c $^
 	f2py -m $(basename $@) -h $@ $^
 
-compile: day01.pyf
+compile: day01.pyf day02.pyf
 	$(foreach pyf, $^, \
-		f2py -c $(pyf) -m $(basename $(pyf)) $(basename $(pyf)).f90 $(SRC))
+		f2py -c $(pyf) -m $(basename $(pyf)) $(basename $(pyf)).f90 $(SRC);)
 	$(foreach pyf, $^, \
-		mv -f $(basename $(pyf))*.so advent19/)
+		mv -f $(basename $(pyf))*.so advent19/;)
 
 
 clean:
