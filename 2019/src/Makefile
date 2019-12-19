@@ -1,5 +1,9 @@
 SRC := types.f90
 
+.PHONY: all compile clean cleanall
+
+all: compile clean
+
 %.pyf: $(SRC) %.f90
 	gfortran -c $^
 	f2py -m $(basename $@) -h $@ $^
