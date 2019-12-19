@@ -27,7 +27,7 @@ contains
       end if
     end do
 
-    print *, "End of intcode program"
+    ! print *, "End of intcode program"
 
   end subroutine
 end module
