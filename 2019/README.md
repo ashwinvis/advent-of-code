@@ -25,6 +25,14 @@ cd build/
 ninja
 ```
 
+## Solution
+
+```sh
+python -m advent19.sol01
+python -m advent19.sol02
+...
+```
+
 ## References
 
 * https://www.fortran90.org/src/best-practices.html
