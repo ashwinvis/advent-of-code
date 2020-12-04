@@ -11,8 +11,12 @@ where P: AsRef<Path>, {
     Ok(io::BufReader::new(file).lines())
 }
 
+// NOTE: & is required for the borrow checker
 fn sum_to_2020(a: &i32, b: &i32) -> bool {
     a + b == 2020
+}
+fn trip_to_2020(a: &i32, b: &i32, c: &i32) -> bool {
+    a + b + c == 2020
 }
 
 // Parse string to integer
@@ -39,6 +43,10 @@ pub fn solve() {
     for (i, x) in xs.iter().enumerate() {
       for y in &xs[i..] {
         if sum_to_2020(&x, &y) {println!("{}", x * y)};
+
+        for z in &xs[(i+1)..] {
+          if trip_to_2020(&x, &y, &z) {println!("{}", x * y * z)};
+        }
       }
     }
 }
