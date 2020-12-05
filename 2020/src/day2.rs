@@ -1,3 +1,5 @@
+use aoc2020::read_data;
+
 // https://doc.rust-lang.org/stable/rust-by-example/custom_types/structs.html
 #[derive(Debug)]
 struct Password {
@@ -8,7 +10,7 @@ struct Password {
 }
 
 // https://doc.rust-lang.org/stable/rust-by-example/std/str.html
-fn parse_line(line: String) -> bool {
+fn parse_line(line: &String) -> Password {
     let mut items: Vec<String> = Vec::new();
 
     for item in line.replace('-', " ").replace(':', " ").split_whitespace() {
@@ -22,9 +24,16 @@ fn parse_line(line: String) -> bool {
         word: items[3].parse().unwrap(),
     };
     println!("{:?}", pass);
+    pass
+}
+
+fn is_valid_part1(pass: &Password) -> bool {
     let count = pass.word.as_str().matches(pass.alpha).count();
-    println!("{} occurs {:?} times", pass.alpha, count);
-    pass.count_min < count && count < pass.count_max
+    let valid = pass.count_min <= count && count <= pass.count_max;
+    if valid {
+      println!("{} occurs {:?} times in {:?}", pass.alpha, count, pass)
+    }
+    valid
 }
 
 #[test]
@@ -33,10 +42,17 @@ fn test() {
 1-3 b: cdefg
 2-9 c: ccccccccc");
     for line in input.lines() {
-        parse_line(String::from(line));
+        let pass=parse_line(&String::from(line));
+        is_valid_part1(&pass);
     }
 }
 
 pub fn solve() {
-    // test();
+    let passwords: Vec<Password> = read_data("input/day2").iter().map(parse_line).collect();
+
+    let valids: Vec<bool> = passwords.iter().map(is_valid_part1).collect();
+
+    let num_valid: i32 = valids.iter().map(|&b| b as i32).sum();
+
+    println!("Number of valid passwords = {}", num_valid)
 }

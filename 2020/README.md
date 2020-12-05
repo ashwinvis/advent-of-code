@@ -4,6 +4,10 @@ To build:
 
     cargo build
 
+To run tests:
+
+    cargo test
+
 To execute:
 
     cargo run [-- args]
