@@ -20,6 +20,7 @@ fn main() {
     match args.len() {
         // one argument passed
         2 => {
+          println!("Solution for Day {}", args[1]);
           match args[1].parse() {
               Ok(1) => day1::solve(),
               Ok(2) => day2::solve(),
