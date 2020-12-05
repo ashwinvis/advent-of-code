@@ -6,7 +6,7 @@ To build:
 
 To run tests:
 
-    cargo test
+    cargo test [-- --nocapture]
 
 To execute:
 
