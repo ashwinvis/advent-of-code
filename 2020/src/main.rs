@@ -1,6 +1,7 @@
 use std::env;
 mod day1;
 mod day2;
+mod day3;
 
 
 fn help() {
@@ -24,6 +25,7 @@ fn main() {
           match args[1].parse() {
               Ok(1) => day1::solve(),
               Ok(2) => day2::solve(),
+              Ok(3) => day3::solve(),
               _ => println!("error: solution for that day does not exist."),
           }
         },
